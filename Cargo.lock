@@ -24,12 +24,23 @@ dependencies = [
 name = "scalar_map"
 version = "0.1.3"
 dependencies = [
- "scalar_map_derive",
+ "scalar_map_derive 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "scalar_map_derive"
 version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "scalar_map_derive"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "916657f2e88ecd67cc1016ddc56f459ef1494856e9cc4ba0ca4346b4df3ebed0"
 dependencies = [
  "proc-macro2",
  "quote",

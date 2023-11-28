@@ -15,4 +15,4 @@ default = ["std"]
 "derive" = ["dep:scalar_map_derive"]
 
 [dependencies]
-scalar_map_derive = { path = "derive", optional = true }
+scalar_map_derive = { version = "0.1.0", optional = true }
