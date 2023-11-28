@@ -32,6 +32,31 @@ impl ScalarMapExt for String {}
 impl ScalarMapExt for &std::path::Path {}
 #[cfg(feature = "std")]
 impl ScalarMapExt for std::path::PathBuf {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::sync::Arc<T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::rc::Rc<T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::sync::Mutex<T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::cell::RefCell<T> {}
+#[cfg(feature = "std")]
+impl<K, V> ScalarMapExt for std::collections::HashMap<K, V> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::collections::HashSet<T> {}
+#[cfg(feature = "std")]
+impl<K, V> ScalarMapExt for std::collections::BTreeMap<K, V> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::collections::BTreeSet<T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::collections::VecDeque<T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::collections::BinaryHeap<T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::collections::LinkedList<T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for Vec<T> {}
+impl<T> ScalarMapExt for &[T] {}
 
 #[cfg(test)]
 mod tests {
