@@ -1,5 +1,8 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
+#[cfg(feature = "derive")]
+pub use scalar_map_derive::ScalarMap;
+
 pub trait ScalarMapExt: Sized {
     fn map<T>(self, f: impl Fn(Self) -> T) -> T {
         f(self)
@@ -101,6 +104,26 @@ mod tests {
         #[derive(Debug, PartialEq)]
         struct MyNum(i32);
         impl ScalarMapExt for MyNum {}
+
+        let num = MyNum(42);
+        assert_eq!(num.map(|x| 42 - x.0).map(MyNum), MyNum(0));
+    }
+
+    #[cfg(feature = "derive")]
+    #[test]
+    fn test_custom_struct_derive() {
+        #[derive(Debug, PartialEq, ScalarMap)]
+        struct MyNum(i32);
+
+        let num = MyNum(42);
+        assert_eq!(num.map(|x| 42 - x.0).map(MyNum), MyNum(0));
+    }
+
+    #[cfg(feature = "derive")]
+    #[test]
+    fn test_custom_struct_derive_generics() {
+        #[derive(Debug, PartialEq, ScalarMap)]
+        struct MyNum<T>(T);
 
         let num = MyNum(42);
         assert_eq!(num.map(|x| 42 - x.0).map(MyNum), MyNum(0));
