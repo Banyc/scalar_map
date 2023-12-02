@@ -42,7 +42,19 @@ impl<T> ScalarMapExt for std::rc::Rc<T> {}
 #[cfg(feature = "std")]
 impl<T> ScalarMapExt for std::sync::Mutex<T> {}
 #[cfg(feature = "std")]
+impl<'a, T> ScalarMapExt for std::sync::MutexGuard<'a, T> {}
+#[cfg(feature = "std")]
+impl<T> ScalarMapExt for std::sync::RwLock<T> {}
+#[cfg(feature = "std")]
+impl<'a, T> ScalarMapExt for std::sync::RwLockReadGuard<'a, T> {}
+#[cfg(feature = "std")]
+impl<'a, T> ScalarMapExt for std::sync::RwLockWriteGuard<'a, T> {}
+#[cfg(feature = "std")]
 impl<T> ScalarMapExt for std::cell::RefCell<T> {}
+#[cfg(feature = "std")]
+impl<'a, T> ScalarMapExt for std::cell::Ref<'a, T> {}
+#[cfg(feature = "std")]
+impl<'a, T> ScalarMapExt for std::cell::RefMut<'a, T> {}
 #[cfg(feature = "std")]
 impl<K, V> ScalarMapExt for std::collections::HashMap<K, V> {}
 #[cfg(feature = "std")]

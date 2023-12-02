@@ -22,7 +22,7 @@ dependencies = [
 
 [[package]]
 name = "scalar_map"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "scalar_map_derive 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
